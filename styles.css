@@ -287,6 +287,18 @@ dt,
   text-transform: uppercase;
 }
 
+.topbar nav .hub-link {
+  color: #ffdf93;
+  border: 1px solid rgba(240, 83, 62, 0.48);
+  background: linear-gradient(90deg, rgba(240, 83, 62, 0.2), rgba(233, 189, 103, 0.08));
+  padding: 0.28rem 0.52rem;
+}
+
+.topbar nav .hub-link::before {
+  content: "< ";
+  color: var(--red);
+}
+
 .top-icons {
   display: flex;
   justify-content: flex-end;
