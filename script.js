@@ -226,7 +226,7 @@ function renderTracks() {
     .map(
       (track) => `
         <button class="track-row ${track.n === 15 ? "active" : ""}" data-track="${track.n}" type="button">
-          <img src="${asset("Images", track.slug, "png")}" alt="" />
+          <img src="${asset("images", track.slug, "png")}" alt="" />
           <span>
             <strong>${String(track.n).padStart(2, "0")} ${track.title}</strong>
             <small>${track.role}</small>
@@ -240,7 +240,7 @@ function renderTracks() {
 
 function selectTrack(number, play = false) {
   const track = tracks.find((item) => item.n === number) || tracks[tracks.length - 1];
-  heroArt.src = asset("Images", track.slug, "png");
+  heroArt.src = asset("images", track.slug, "png");
   heroArt.alt = `${track.title} cover art`;
   heroTitle.textContent = track.title;
   heroBlurb.textContent = track.blurb;
