@@ -141,6 +141,24 @@ const guideTabs = [
     callout: "The best stat is the one that keeps the living core alive after the pull ends.",
   },
   {
+    id: "strengths",
+    label: "Strengths",
+    title: "Strengths",
+    body:
+      "Heartward excels when the fight asks for steadiness instead of spectacle. Cael can hold the center, name the danger, and turn panic into a room where people can breathe again.",
+    bullets: ["Excellent group stabilization during chaos pulls", "Strong cooldowns for fear, shame, and isolation mechanics", "Turns wipe nights into stories people can safely come back to"],
+    callout: "Best used when the group needs a living anchor, not a silent sacrifice.",
+  },
+  {
+    id: "weaknesses",
+    label: "Weaknesses",
+    title: "Weaknesses",
+    body:
+      "The build fails when protection becomes performance. If Cael treats every missing health bar as a personal verdict, the shield starts costing more than the boss.",
+    bullets: ["Can overcap responsibility and miss personal damage intake", "Vulnerable to fights that reward being needed over being honest", "Requires active rest windows or mitigation collapses late"],
+    callout: "Watch for the old habit: saving the room while quietly leaving himself out of it.",
+  },
+  {
     id: "rotation",
     label: "Rotation",
     title: "Core Rotation",
@@ -154,9 +172,9 @@ const guideTabs = [
     label: "Cast",
     title: "Canonical Raid Roster",
     body:
-      "The album-cover party-frame names are filler UI labels. The main HEARTBEAT cast uses the detailed roster below.",
+      "This is the in-world roster for the HEARTBEAT guide: the people around the hearth, the raid, and the softer mirror version of the shield.",
     bullets: ["Cael Ward - Blood Elf Protection Paladin", "Sunbrand - Blood Elf Retribution Paladin", "Lyralyn - Blood Elf Holy Priest", "Shadeleaf - Blood Elf Rogue", "Renarin - Blood Elf Hunter", "Moofluff - Tauren Druid", "Garok - Orc Warrior", "Soar Ward - Blood Elf mirror paladin"],
-    callout: "Use this cast for Lumen continuity across guide, signup, and progress panels.",
+    callout: "Cael carries the shield, but the chapter is not a solo clear. The roster is what makes the oath livable.",
   },
 ];
 
@@ -187,19 +205,19 @@ const signups = [
 ];
 
 const bosses = [
-  ["Ironwarden", "12 pulls", "98%", "done"],
-  ["Ember Council", "18 pulls", "96%", "done"],
-  ["Hollow Prelate", "27 pulls", "85%", "done"],
-  ["Crimson Oracle", "31 pulls", "72%", "done"],
+  ["Ironwarden", "12 pulls", "CLEARED", "done"],
+  ["Ember Council", "18 pulls", "CLEARED", "done"],
+  ["Hollow Prelate", "27 pulls", "CLEARED", "done"],
+  ["Crimson Oracle", "31 pulls", "CLEARED", "done"],
   ["Heartbinder", "47 pulls", "56%", "danger"],
-  ["The Living Core", "locked", "--", ""],
+  ["The Living Core", "not pulled", "--", ""],
 ];
 
 const progressRows = [
-  ["Ironwarden", "12", "98%", "03:42", "2,388"],
-  ["Ember Council", "18", "96%", "05:16", "2,421"],
-  ["Hollow Prelate", "27", "85%", "04:58", "2,318"],
-  ["Crimson Oracle", "31", "72%", "04:21", "2,092"],
+  ["Ironwarden", "12", "CLEARED", "03:42", "2,388"],
+  ["Ember Council", "18", "CLEARED", "05:16", "2,421"],
+  ["Hollow Prelate", "27", "CLEARED", "04:58", "2,318"],
+  ["Crimson Oracle", "31", "CLEARED", "04:21", "2,092"],
   ["Heartbinder", "47", "56%", "07:11", "1,857"],
 ];
 
@@ -314,6 +332,9 @@ function renderGuidePanel(id) {
   document.querySelectorAll(".guide-tabs button").forEach((button) => {
     button.classList.toggle("active", button.dataset.guide === id);
   });
+  document.querySelectorAll(".guide-menu [data-guide-link]").forEach((link) => {
+    link.classList.toggle("active", link.dataset.guideLink === id);
+  });
 }
 
 function renderTalents() {
@@ -348,20 +369,21 @@ function renderSignups() {
 
 function renderBosses() {
   document.querySelector("#bossList").innerHTML = bosses
-    .map(
-      ([name, pulls, best, state]) => `
+    .map(([name, pulls, best, state]) => {
+      const bossStatus = state === "done" ? "CLEARED" : state === "danger" ? `best ${best}` : "locked";
+      return `
         <div class="boss-row">
-          <span><strong>${name}</strong><small>${pulls} · best ${best}</small></span>
-          <span class="${state}">${state === "done" ? "✓" : state === "danger" ? "☠" : "▣"}</span>
+          <span><strong>${name}</strong><small>${pulls} ? ${bossStatus}</small></span>
+          <span class="${state}">${state === "done" ? "?" : state === "danger" ? "?" : "?"}</span>
         </div>
-      `
-    )
+      `;
+    })
     .join("");
 }
 
 function renderProgress() {
   document.querySelector("#progressTable").innerHTML = `
-    <div class="progress-row header"><span>Boss</span><span>Pulls</span><span>Best</span><span>Duration</span><span>Score</span></div>
+    <div class="progress-row header"><span>Boss</span><span>Pulls</span><span>Status</span><span>Duration</span><span>Score</span></div>
     ${progressRows
       .map((row) => `<div class="progress-row"><strong>${row[0]}</strong><span>${row[1]}</span><span class="parse">${row[2]}</span><span>${row[3]}</span><span>${row[4]}</span></div>`)
       .join("")}
@@ -396,6 +418,12 @@ document.querySelector("#guideTabs").addEventListener("click", (event) => {
   const button = event.target.closest("button");
   if (!button) return;
   renderGuidePanel(button.dataset.guide);
+});
+
+document.querySelector(".guide-menu").addEventListener("click", (event) => {
+  const link = event.target.closest("[data-guide-link]");
+  if (!link) return;
+  renderGuidePanel(link.dataset.guideLink);
 });
 
 document.querySelector("#talentGrid").addEventListener("click", (event) => {
