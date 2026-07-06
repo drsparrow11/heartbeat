@@ -373,8 +373,8 @@ function renderBosses() {
       const bossStatus = state === "done" ? "CLEARED" : state === "danger" ? `best ${best}` : "locked";
       return `
         <div class="boss-row">
-          <span><strong>${name}</strong><small>${pulls} ? ${bossStatus}</small></span>
-          <span class="${state}">${state === "done" ? "?" : state === "danger" ? "?" : "?"}</span>
+          <span><strong>${name}</strong><small>${pulls} &middot; ${bossStatus}</small></span>
+          <span class="${state}">${state === "done" ? "&#10003;" : state === "danger" ? "&#9760;" : "&#9633;"}</span>
         </div>
       `;
     })
