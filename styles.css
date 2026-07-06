@@ -72,7 +72,7 @@ h3,
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.2) 44%, rgba(0, 0, 0, 0.78)),
     linear-gradient(180deg, rgba(0, 0, 0, 0.1), #050706 96%),
-    url("assets/images/heartbeat-album-cover.png") center / cover;
+    url("assets/media/heartbeat-album-cover.png") center / cover;
   filter: saturate(1.08) contrast(1.1);
   transform: scale(1.02);
 }
@@ -237,7 +237,7 @@ dt,
   background:
     radial-gradient(circle at 50% 0%, rgba(187, 36, 30, 0.18), transparent 28rem),
     linear-gradient(120deg, rgba(7, 11, 11, 0.98), rgba(6, 7, 6, 0.98)),
-    url("assets/images/heartbeat-album-cover.png") center top / 120rem auto fixed;
+    url("assets/media/heartbeat-album-cover.png") center top / 120rem auto fixed;
 }
 
 .topbar {
