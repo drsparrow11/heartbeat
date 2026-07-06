@@ -26,7 +26,7 @@
           <div class="splash-pulse" aria-hidden="true"></div>
           <div class="splash-actions">
             <a href="#dashboard" class="gold-button">Enter the raid guide</a>
-            <a href="#playlist" class="ghost-button">Open local playlist</a>
+            <a href="#playlist" class="ghost-button">Open lyrics archive</a>
           </div>
         </div>
         <div class="splash-status right">
@@ -132,6 +132,27 @@
               <p id="heroBlurb">The finale where the shield can finally leave his hand.</p>
               <audio id="audioPlayer" controls src="assets/audio/15-heartward.mp3"></audio>
               <div id="detailTags" class="track-tags"></div>
+              <div class="youtube-card">
+                <div>
+                  <strong>YouTube Questline</strong>
+                  <span>Full playlist with lyric videos</span>
+                </div>
+                <a href="https://youtube.com/playlist?list=PLUn-bV-j58kk" target="_blank" rel="noreferrer">Open Playlist</a>
+              </div>
+              <iframe
+                class="youtube-embed"
+                title="HEARTBEAT YouTube playlist"
+                src="https://www.youtube.com/embed/videoseries?list=PLUn-bV-j58kk"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </article>
+            <article class="lyrics-card">
+              <div class="panel-heading">
+                <p>Lyric Sheet</p>
+                <h2 id="lyricsTitle">HEARTWARD</h2>
+              </div>
+              <div id="lyricsBody" class="lyrics-body" aria-live="polite"></div>
             </article>
           </section>
 
@@ -228,6 +249,7 @@
       </div>
     </div>
 
+    <script src="lyrics.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

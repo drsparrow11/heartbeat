@@ -216,9 +216,16 @@ const heroTitle = document.querySelector("#heroTitle");
 const heroBlurb = document.querySelector("#heroBlurb");
 const detailTags = document.querySelector("#detailTags");
 const trackList = document.querySelector("#trackList");
+const lyricsTitle = document.querySelector("#lyricsTitle");
+const lyricsBody = document.querySelector("#lyricsBody");
+const lyricsArchive = window.heartbeatLyrics || {};
 
 function asset(type, slug, ext) {
   return `assets/${type}/${slug}.${ext}`;
+}
+
+function escapeHtml(value) {
+  return value.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]);
 }
 
 function renderTracks() {
@@ -246,6 +253,7 @@ function selectTrack(number, play = false) {
   heroBlurb.textContent = track.blurb;
   audio.src = asset("audio", track.slug, "mp3");
   detailTags.innerHTML = track.tags.map((tag) => `<span>${tag}</span>`).join("");
+  renderLyrics(track);
 
   document.querySelectorAll(".track-row").forEach((row) => {
     row.classList.toggle("active", Number(row.dataset.track) === track.n);
@@ -254,6 +262,32 @@ function selectTrack(number, play = false) {
   if (play) {
     audio.play().catch(() => {});
   }
+}
+
+function renderLyrics(track) {
+  const sections = lyricsArchive[track.slug];
+  lyricsTitle.textContent = track.title;
+
+  if (!sections) {
+    lyricsBody.innerHTML = `
+      <div class="lyrics-empty">
+        <strong>Lyrics pending import</strong>
+        <p>This track was not present in the supplied lyric export yet. Add the final sheet and this panel will sync to the local player.</p>
+      </div>
+    `;
+    return;
+  }
+
+  lyricsBody.innerHTML = sections
+    .map(
+      (section) => `
+        <section class="lyric-section">
+          <h3>${escapeHtml(section.label)}</h3>
+          ${section.lines.map((line) => (line ? `<p>${escapeHtml(line)}</p>` : `<br />`)).join("")}
+        </section>
+      `
+    )
+    .join("");
 }
 
 function renderGuideTabs() {

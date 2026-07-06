@@ -667,6 +667,104 @@ audio {
   text-transform: uppercase;
 }
 
+.youtube-card {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.85rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(240, 83, 62, 0.34);
+  background: linear-gradient(90deg, rgba(240, 83, 62, 0.16), rgba(233, 189, 103, 0.05));
+}
+
+.youtube-card strong,
+.youtube-card span {
+  display: block;
+}
+
+.youtube-card strong {
+  color: var(--gold-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+
+.youtube-card span {
+  color: #d4c39a;
+  font-size: 0.82rem;
+}
+
+.youtube-card a {
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  color: #ffe8b6;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.youtube-embed {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-top: 0.85rem;
+  border: 1px solid var(--border);
+  background: #020303;
+}
+
+.lyrics-card {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--border-dim);
+  padding: 1rem;
+  background:
+    linear-gradient(90deg, rgba(3, 6, 6, 0.82), rgba(18, 13, 8, 0.7)),
+    radial-gradient(circle at 85% 0%, rgba(240, 83, 62, 0.13), transparent 24rem);
+}
+
+.lyrics-body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  max-height: 31rem;
+  overflow: auto;
+  padding-right: 0.2rem;
+}
+
+.lyric-section,
+.lyrics-empty {
+  border: 1px solid var(--border-dim);
+  background: rgba(0, 0, 0, 0.22);
+  padding: 0.85rem;
+}
+
+.lyric-section h3 {
+  margin: 0 0 0.55rem;
+  color: var(--gold);
+  font-size: 0.86rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lyric-section p,
+.lyrics-empty p {
+  margin: 0;
+  color: #ead8ad;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.lyric-section p + p {
+  margin-top: 0.18rem;
+}
+
+.lyrics-empty strong {
+  display: block;
+  color: var(--gold-bright);
+  margin-bottom: 0.35rem;
+}
+
 .guide-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -1004,7 +1102,8 @@ audio {
   .talent-columns,
   .filters,
   .progress-row,
-  .log-row {
+  .log-row,
+  .lyrics-body {
     grid-template-columns: 1fr;
   }
 }

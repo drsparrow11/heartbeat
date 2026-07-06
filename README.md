@@ -14,7 +14,9 @@ Included:
 - Note that the album-cover party-frame names are filler UI labels, not the main roster
 - 15 local cover images in `assets/media`
 - 15 web-friendly MP3 files in `assets/audio`
+- 15 confirmed lyric sheets in `lyrics.js`
 - Interactive track/player roster
+- YouTube playlist embed/link for the full HEARTBEAT playlist
 - WoWhead-style guide rail
 - Raider.IO-inspired progress panel
 - Discord-style raid signups
