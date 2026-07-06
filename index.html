@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 7 - HEARTBEAT</title>
+    <meta
+      name="description"
+      content="Chapter 7 - HEARTBEAT, an in-world raid guide, progress sheet, talent build, and music archive for Cael Ward."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section id="splash" class="splash" aria-label="HEARTBEAT splash screen">
+      <div class="splash-bg" aria-hidden="true"></div>
+      <div class="splash-frame">
+        <div class="splash-status left">
+          <span>Album Status</span>
+          <strong>Complete</strong>
+          <small>Signal strong · hearth lit · shield resting</small>
+        </div>
+        <div class="splash-title">
+          <p>A concept album by Sparrow x Echo</p>
+          <h1>HEARTBEAT</h1>
+          <h2>Cael Ward x Heartward</h2>
+          <div class="splash-pulse" aria-hidden="true"></div>
+          <div class="splash-actions">
+            <a href="#dashboard" class="gold-button">Enter the raid guide</a>
+            <a href="#playlist" class="ghost-button">Open local playlist</a>
+          </div>
+        </div>
+        <div class="splash-status right">
+          <span>Hearth Status</span>
+          <strong>Warm · Stable · Safe</strong>
+          <small>A real hearth does not need you to burn.</small>
+        </div>
+      </div>
+    </section>
+
+    <div id="dashboard" class="app-shell">
+      <header class="topbar">
+        <a href="#splash" class="top-brand" aria-label="Return to HEARTBEAT splash">
+          <span class="sigil"></span>
+          <strong>Cael Ward</strong>
+        </a>
+        <nav aria-label="Primary">
+          <a href="#guide">Guide</a>
+          <a href="#progress">Progression</a>
+          <a href="#talents">Talents</a>
+          <a href="#raid">Community</a>
+          <a href="#logs">Logs</a>
+          <a href="#playlist">Media</a>
+        </nav>
+        <div class="top-icons" aria-hidden="true">
+          <span class="beat-mini"></span>
+          <span>♜</span>
+          <span>⚙</span>
+        </div>
+      </header>
+
+      <div class="layout">
+        <aside class="left-rail" aria-label="Field guide navigation">
+          <section class="profile-card panel">
+            <p>Protection</p>
+            <h2>Paladin</h2>
+            <img src="assets/images/heartward-ditto.png" alt="Heartward shield and hearth artifact" />
+            <strong>Shield of the living. Wall of the light.</strong>
+          </section>
+
+          <section class="guide-menu panel">
+            <h3>Guide</h3>
+            <a href="#guide" class="active">✦ Overview</a>
+            <a href="#guide">✦ Stats & Priority</a>
+            <a href="#guide">✦ Strengths</a>
+            <a href="#guide">✦ Weaknesses</a>
+            <a href="#talents">✦ Talents</a>
+            <a href="#progress">✦ Progression</a>
+            <a href="#logs">✦ Logs</a>
+          </section>
+
+          <section class="quick-ref panel">
+            <h3>Quick Reference</h3>
+            <dl>
+              <div><dt>Primary Stat</dt><dd>Purpose</dd></div>
+              <div><dt>Defense</dt><dd>Block · Parry · Boundary</dd></div>
+              <div><dt>Weapon</dt><dd>Sword & shield</dd></div>
+              <div><dt>Role</dt><dd>Tank</dd></div>
+              <div><dt>Resource</dt><dd>Heartbeat</dd></div>
+            </dl>
+          </section>
+
+          <blockquote class="quote-card panel">
+            “I do not fight for glory. I stand so others may find tomorrow.”
+            <cite>Cael Ward</cite>
+          </blockquote>
+        </aside>
+
+        <main class="main-stage">
+          <section class="command-hero panel">
+            <div class="hero-copy">
+              <p>Chapter 7</p>
+              <h1>HEARTBEAT</h1>
+              <h2>Purpose</h2>
+              <span>Core question: what do I stand for?</span>
+            </div>
+            <div class="shield-core" aria-hidden="true">
+              <div class="shield-glyph"></div>
+              <div class="hero-pulse"></div>
+            </div>
+            <div class="status-strip">
+              <div><span>Primary Entity</span><strong>Cael Ward</strong></div>
+              <div><span>Status</span><strong class="red">Oath Detected</strong></div>
+              <div><span>Signal Type</span><strong>Living Core</strong></div>
+              <div><span>Recovery Mode</span><strong class="green">Questline Active</strong></div>
+            </div>
+          </section>
+
+          <section id="playlist" class="media-board panel">
+            <div class="quest-column">
+              <div class="panel-heading">
+                <p>The Album / Questline</p>
+                <h2>Fifteen pulls to the oath</h2>
+              </div>
+              <div id="trackList" class="track-list" aria-label="Album track list"></div>
+            </div>
+            <article class="now-playing-card">
+              <div class="panel-heading">
+                <p>Now Playing</p>
+                <h2 id="heroTitle">HEARTWARD</h2>
+              </div>
+              <img id="heroArt" src="assets/images/15-heartward.png" alt="HEARTWARD cover art" />
+              <p id="heroBlurb">The finale where the shield can finally leave his hand.</p>
+              <audio id="audioPlayer" controls src="assets/audio/15-heartward.mp3"></audio>
+              <div id="detailTags" class="track-tags"></div>
+            </article>
+          </section>
+
+          <section id="guide" class="guide-deck panel">
+            <div class="panel-heading">
+              <p>Hearthead Field Guide</p>
+              <h2>Protection Paladin: Heartward build</h2>
+            </div>
+            <div class="guide-tabs" id="guideTabs" role="tablist" aria-label="Guide tabs"></div>
+            <div id="guidePanel" class="guide-panel"></div>
+          </section>
+
+          <section id="talents" class="talent-shell panel">
+            <div class="talent-main">
+              <div class="panel-heading">
+                <p>Talent Build</p>
+                <h2>Protection Paladin / Mythic Purpose</h2>
+              </div>
+              <div class="talent-columns" id="talentGrid"></div>
+              <div class="talent-footer">
+                <span>Points spent: 71/71</span>
+                <button id="copyBuild" type="button">Copy Build</button>
+              </div>
+            </div>
+            <aside class="stats-card">
+              <h3>Key Stats</h3>
+              <dl>
+                <div><dt>Item Level</dt><dd>523.8</dd></div>
+                <div><dt>Stamina</dt><dd>1,102,340</dd></div>
+                <div><dt>Strength</dt><dd>46,872</dd></div>
+                <div><dt>Armor</dt><dd>126,489</dd></div>
+                <div><dt>Block</dt><dd>32.4%</dd></div>
+                <div><dt>Parry</dt><dd>24.7%</dd></div>
+                <div><dt>Versatility</dt><dd>11.6%</dd></div>
+              </dl>
+            </aside>
+          </section>
+
+          <section id="progress" class="progress-log-grid">
+            <article class="progress-sheet panel">
+              <div class="panel-heading">
+                <p>Raider.Ward Progress Sheet</p>
+                <h2>Heartbinder progression</h2>
+              </div>
+              <div class="progress-table" id="progressTable"></div>
+            </article>
+            <article id="logs" class="log-report panel">
+              <div class="panel-heading">
+                <p>Warcraft Heartlogs</p>
+                <h2>The Living Core parse</h2>
+              </div>
+              <div class="filters">
+                <button>The Living Core</button>
+                <button>Mythic</button>
+                <button>All Specs</button>
+                <button>Last 25 Pulls</button>
+              </div>
+              <div class="log-table" id="logTable"></div>
+            </article>
+          </section>
+        </main>
+
+        <aside class="right-rail" aria-label="Progression and community">
+          <section class="progress-card panel">
+            <h3>Progression</h3>
+            <div class="boss-list" id="bossList"></div>
+            <div class="score-block">
+              <span>Mythic Progress</span>
+              <strong>4/8</strong>
+              <div class="bar"><i style="width: 58%"></i></div>
+            </div>
+            <div class="score-block">
+              <span>Ward.IO Score</span>
+              <strong>2,419</strong>
+              <small>Tank score 2,387 · best run M 4/8</small>
+            </div>
+          </section>
+
+          <section id="raid" class="signup-panel panel">
+            <h3>Raid Signups</h3>
+            <p>Heartbinder Mythic · pulling at 8:15 PM server</p>
+            <div id="signupGrid" class="signup-list"></div>
+            <button id="joinRaid" type="button" class="discord-button">Join the in-world signup</button>
+          </section>
+
+          <section class="cover-panel panel">
+            <h3>Album Artifact</h3>
+            <a href="assets/images/heartbeat-album-cover.png">
+              <img src="assets/images/heartbeat-album-cover.png" alt="HEARTBEAT album cover" />
+            </a>
+            <p>The party-frame labels on the cover are UI filler. The canon cast lives in the signups and guide.</p>
+          </section>
+        </aside>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
